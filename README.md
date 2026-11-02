@@ -1,157 +1,216 @@
-# Pizzeria Kotlin
+Sistema de Gestión de Pizzería
 
-Aplicación de consola desarrollada en Kotlin para simular la gestión
-básica de pedidos de una pizzería. Este proyecto corresponde a la
-actividad formativa **"Mi primera app en Kotlin"** de la Semana 1 del
-módulo Desarrollo de Aplicaciones Móviles (PMY2201).
+Asignatura: Desarrollo App Móviles (PMY2201)
+Actividad: Semana 2 – Aplicando utilidades de Kotlin
+Entorno de desarrollo: IntelliJ IDEA
+Lenguaje: Kotlin
+JDK: Java 21
 
-## Objetivo
+# Descripción del proyecto
 
-Aplicar los fundamentos de Kotlin mediante el registro de clientes, la
-selección de productos, el cálculo de precios y descuentos, la
-validación de stock y la generación de un resumen del pedido.
+Este proyecto consiste en el desarrollo de un sistema de gestión para una pizzería, utilizando Kotlin y aplicando los conceptos fundamentales de programación vistos durante la segunda semana de la asignatura Desarrollo App Móviles.
 
-## Funcionalidades
+La aplicación permite gestionar pedidos, registrar clientes, controlar el inventario de ingredientes y asignar repartidores, incorporando validaciones y manejo de errores para mantener un funcionamiento correcto.
 
--   Registro de nombre, dirección, teléfono e identificador del pedido.
--   Validación de campos obligatorios y del formato del teléfono.
--   Menú interactivo con cinco tipos de pizza.
--   Selección de varias pizzas y acumulación de cantidades en un mismo
-    pedido.
--   Validación de cantidades y disponibilidad de stock.
--   Descuento del **10 %** cuando el pedido contiene más de tres pizzas.
--   Descuento adicional del **5 %** para clientes frecuentes.
--   Confirmación o cancelación del pedido.
--   Actualización del inventario únicamente cuando se confirma un pedido
-    válido.
--   Resumen final con los datos del cliente, los productos, los
-    descuentos, el total, el estado del pedido y el repartidor asignado.
+El objetivo principal es aplicar estructuras de control, arreglos, funciones, colecciones, programación orientada a objetos y manejo de valores nulos mediante un caso práctico.
 
-## Tecnologías y requisitos
+# Funcionalidades principales
 
--   **Lenguaje:** Kotlin
--   **Entorno de desarrollo:** IntelliJ IDEA
--   **JDK:** 21
--   **Tipo de aplicación:** consola
+Gestión de clientes
 
-No se requiere una base de datos ni dependencias externas para ejecutar
-esta versión.
+Registro del nombre y datos de contacto.
 
-## Menú de pizzas de ejemplo
+Validación del número telefónico.
 
-    Opción Pizza             Precio de ejemplo   Stock inicial
-  -------- --------------- ------------------- ---------------
-         1 Margarita                   \$6.990              10
-         2 Pepperoni                   \$8.990              10
-         3 Cuatro Quesos               \$9.990              10
-         4 Hawaiana                    \$8.490              10
-         5 Vegetariana                 \$7.990              10
+Validación del correo electrónico.
 
-Los precios y las cantidades iniciales son valores de ejemplo definidos
-en el código y pueden modificarse.
+Identificación de clientes frecuentes.
 
-## Reglas de descuentos
+Gestión de productos y pedidos
 
-Los descuentos se calculan sobre el subtotal del pedido:
+Catálogo de pizzas disponibles.
 
--   **Descuento por cantidad:** 10 % si se compran más de tres pizzas.
--   **Descuento por cliente frecuente:** 5 % si se responde `S` al
-    indicar si el cliente es frecuente.
--   Los descuentos son acumulables y se suman para obtener el descuento
-    total.
+Selección de productos y cantidades.
 
-**Ejemplo:** para cuatro pizzas Margarita, el subtotal es \$27.960. Si
-el cliente es frecuente, se aplica un 10 % (\$2.796) y un 5 % (\$1.398),
-para un total de \$23.766.
+Registro de notas adicionales.
 
-## Cómo ejecutar el proyecto
+Cálculo de subtotal, descuentos e impuestos.
 
-1.  Abre IntelliJ IDEA.
-2.  Selecciona **Open** y elige la carpeta del proyecto `Pizzeria`.
-3.  Comprueba que el proyecto utilice JDK 21.
-4.  Abre el archivo `Main.kt`.
-5.  Ejecuta la función `main` mediante el botón verde de ejecución o con
-    `Ctrl + Shift + F10`.
-6.  Sigue las instrucciones que aparecen en la consola.
+Generación de un resumen detallado del pedido.
 
-## Flujo de uso
+Control de inventario
 
-1.  Introduce el nombre, la dirección, el teléfono y el ID del pedido.
-2.  Indica si el cliente es frecuente (`S` o `N`).
-3.  Selecciona una pizza del menú e introduce una cantidad.
-4.  Repite la selección para agregar otros productos.
-5.  Elige `0` para finalizar y confirmar el pedido, o `9` para
-    cancelarlo.
-6.  Revisa el resumen que muestra el programa.
+Registro de ingredientes y cantidades disponibles mediante un Map.
 
-El stock se consulta durante la selección y se descuenta cuando se
-confirma un pedido válido. Si se cancela el pedido o no se agregan
-productos, no se modifica el inventario.
+Verificación de disponibilidad antes de aceptar pedidos.
 
-## Pruebas recomendadas
+Descuento automático de ingredientes al preparar un pedido.
 
-  -----------------------------------------------------------------------
-  Prueba                              Resultado esperado
-  ----------------------------------- -----------------------------------
-  Introducir un nombre vacío          El programa vuelve a solicitar el
-                                      dato.
+Mensajes de advertencia cuando faltan ingredientes.
 
-  Introducir un teléfono inválido     El programa vuelve a solicitar el
-                                      teléfono.
+Funcionalidad para reabastecer el inventario.
 
-  Introducir una cantidad no numérica El programa solicita una cantidad
-  o menor que uno                     válida.
+Gestión de repartidores
 
-  Solicitar más unidades que el stock La selección se rechaza y el
-  disponible                          carrito no cambia.
+Registro de repartidores disponibles.
 
-  Comprar exactamente tres pizzas     No se aplica el descuento por
-                                      cantidad.
+Búsqueda mediante el método find.
 
-  Comprar cuatro pizzas               Se aplica el descuento por cantidad
-                                      del 10 %.
+Asignación de repartidores a pedidos preparados.
 
-  Indicar que el cliente es frecuente Se aplica el descuento adicional
-                                      del 5 %.
+Actualización de su disponibilidad.
 
-  Cancelar con la opción `9`          El pedido queda cancelado y el
-                                      stock no se modifica.
+Estados de los pedidos
 
-  Finalizar sin productos             No se confirma el pedido y el stock
-                                      no se modifica.
+La aplicación contempla los siguientes estados:
 
-  Confirmar un pedido válido          Se descuenta el inventario y se
-                                      muestra el resumen.
-  -----------------------------------------------------------------------
+EN_PREPARACION: el pedido se encuentra en preparación.
 
-## Estructura del proyecto
+LISTO: el pedido está preparado.
 
-La estructura exacta puede variar según las opciones elegidas al crear
-el proyecto en IntelliJ IDEA. Como mínimo, conserva:
+EN_CAMINO: el pedido fue asignado a un repartidor y salió a entrega.
 
--   `Main.kt`: código fuente de la aplicación.
--   Archivos de configuración del proyecto generados por IntelliJ IDEA,
-    si corresponden.
+Se incorporaron validaciones para controlar las transiciones permitidas entre estados.
 
-## Alcance y consideraciones
+# Tecnologías y conceptos utilizados
 
--   El inventario se mantiene en memoria y vuelve a sus valores
-    iniciales al reiniciar el programa.
--   El stock se modela como unidades disponibles de cada tipo de pizza;
-    no se gestionan ingredientes individuales.
--   La asignación del repartidor es fija (`Repartidor 1`) cuando el
-    pedido se confirma.
--   Los pedidos no se guardan en una base de datos.
--   La aplicación es una simulación académica de consola, no una
-    aplicación móvil con interfaz gráfica.
+Kotlin: lenguaje principal del proyecto.
 
-## Entrega
+IntelliJ IDEA: entorno de desarrollo.
 
-Comprime la carpeta del proyecto en formato **ZIP o RAR** y sube el
-archivo a la plataforma de la asignatura, según las instrucciones de la
-actividad.
+Java 21: entorno de ejecución.
 
-------------------------------------------------------------------------
+Conceptos de programación aplicados:
 
-Proyecto académico --- PMY2201 Desarrollo de Aplicaciones Móviles,
-Semana 1.
+Variables, tipos de datos y operadores.
+
+Condicionales if y when.
+
+Ciclos for y estructuras iterativas.
+
+Arreglos para almacenar pedidos.
+
+Manipulación y formato de strings.
+
+Funciones reutilizables.
+
+Colecciones: List, Map y MutableMap.
+
+Programación orientada a objetos.
+
+Clases, objetos, herencia y polimorfismo.
+
+Encapsulamiento mediante modificadores de acceso.
+
+Manejo de excepciones con try-catch.
+
+Null safety mediante ?., ?: y let.
+
+# Estructura del proyecto
+
+La organización del código se distribuye en los siguientes paquetes:
+
+Pizzeria/
+│
+└── src/
+    └── main/
+        └── kotlin/
+            └── com/
+                └── pizzeria/
+                    │
+                    ├── Main.kt
+                    │
+                    ├── model/
+                    │   ├── Producto.kt
+                    │   ├── Pedido.kt
+                    │   ├── Usuario.kt
+                    │   ├── Cliente.kt
+                    │   └── Repartidor.kt
+                    │
+                    ├── service/
+                    │   ├── InventarioService.kt
+                    │   ├── PedidoService.kt
+                    │   └── RepartidorService.kt
+                    │
+                    └── util/
+                        ├── Validador.kt
+                        └── Formato.kt
+
+Descripción de los paquetes:
+
+model: contiene las clases que representan los productos, pedidos, clientes, usuarios y repartidores.
+
+service: concentra la lógica de gestión de pedidos, inventario y repartidores.
+
+util: contiene herramientas para validar datos y dar formato a la información.
+
+Main.kt: punto de entrada de la aplicación y menú principal.
+
+# Requisitos para ejecutar el proyecto
+
+Para ejecutar la aplicación se necesita:
+
+IntelliJ IDEA.
+
+JDK 21 instalado.
+
+Proyecto Kotlin correctamente configurado.
+
+# Ejecución
+
+Abrir IntelliJ IDEA.
+
+Seleccionar Open y buscar la carpeta del proyecto.
+
+Esperar a que IntelliJ cargue la configuración.
+
+Localizar el archivo Main.kt.
+
+Ejecutar la función principal main().
+
+Al iniciar, se mostrará un menú con las siguientes opciones:
+
+==============================
+      PIZZERIA - MENU
+==============================
+1. Realizar pedido
+2. Ver inventario
+3. Ver reporte de pedidos
+4. Ver repartidores
+5. Salir
+==============================
+
+# Pruebas realizadas
+
+Durante la validación del proyecto se realizaron pruebas funcionales para comprobar:
+
+Rechazo de teléfonos y correos electrónicos inválidos.
+
+Validación de respuestas del cliente.
+
+Registro y preparación de pedidos.
+
+Cálculo de descuentos, impuestos y total.
+
+Actualización de las cantidades del inventario.
+
+Asignación y disponibilidad de repartidores.
+
+Generación del resumen y reporte de pedidos.
+
+Control de transiciones de estados no permitidas.
+
+Manejo de errores y valores nulos.
+
+Las pruebas realizadas permitieron comprobar el funcionamiento de los principales procesos de la aplicación.
+
+# Conclusión
+
+El desarrollo de este proyecto permitió aplicar los principales conceptos de Kotlin mediante la construcción de una solución práctica para la gestión de una pizzería.
+
+Se implementaron estructuras de control, arreglos, colecciones, funciones y programación orientada a objetos, además de mecanismos de validación y manejo de errores.
+
+La aplicación integra sus principales procesos en una estructura organizada por paquetes, facilitando la comprensión, mantenimiento y continuidad del desarrollo.
+
+Proyecto académico – Desarrollo App Móviles (PMY2201)
+Semana 2 – Aplicando utilidades de Kotlin
